@@ -1,0 +1,10 @@
+# VSCode files
+.vscode/
+
+# CMake build directory
+build/
+
+# Executable files
+*.exe
+*.out
+*.app

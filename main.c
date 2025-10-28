@@ -21,9 +21,8 @@
 #include <windows.h>
 #include "app_config.h"
 #include "Tprint.h"
-#include "../core/StudentManager/SMS_controller.h"
-// 添加井字棋游戏头文件
-#include "core/SimpleGames/TicTacToe.h"
+#include "StudentManager.h"
+#include "TicTacToe.h"
 
 /*=============================================================================
  *                          函数声明区
@@ -55,25 +54,38 @@ int main(void)
         switch (choice)
         {
             case 1:
+            {
                 printf("\n学生信息管理系统");
-                sms_run();
+                sm_run();
                 break;
+            }
             case 2:
-                // 启动井字棋游戏
-                ttt_run();
+            {
+                printf("\n井字棋游戏\n");
+                ttt_init_game();
+                ttt_run_game();
                 break;
+            }
             case 3:
+            {
                 printf("功能未实现\n");
                 break;
+            }
             case 4:
+            {
                 printf("功能未实现\n");
                 break;
+            }
             case 5:
+            {
                 printf("感谢使用，再见！\n");
                 return 0;
+            }
             default:
+            {
                 printf("无效的选择！\n");
                 break;
+            }
         }
         
         printf("按任意键继续...");
@@ -87,7 +99,7 @@ int main(void)
 void main_init_app(void)
 {
     printf("正在初始化系统...\n");
-    sms_initialize_application();
+    sm_initialize();
     printf("系统初始化完成。\n");
 }
 

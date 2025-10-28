@@ -21,7 +21,9 @@
 #include <windows.h>
 #include "app_config.h"
 #include "Tprint.h"
-#include "SMS_controller.h"
+#include "../core/StudentManager/SMS_controller.h"
+// 添加井字棋游戏头文件
+#include "core/SimpleGames/TicTacToe.h"
 
 /*=============================================================================
  *                          函数声明区
@@ -57,7 +59,8 @@ int main(void)
                 sms_run();
                 break;
             case 2:
-                printf("功能未实现\n");
+                // 启动井字棋游戏
+                ttt_run();
                 break;
             case 3:
                 printf("功能未实现\n");
@@ -92,7 +95,7 @@ void main_show_main_menu(void)
 {
     printf("\n========== 主菜单 ==========\n");
     printf("1. 学生信息管理系统\n");
-    printf("2. (未实现)\n");
+    printf("2. 井字棋游戏\n");
     printf("3. (未实现)\n");
     printf("4. (未实现)\n");
     printf("5. 退出系统\n");

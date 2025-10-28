@@ -11,21 +11,21 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # 自动收集core目录下的所有源文件和头文件
-file(GLOB_RECURSE CORE_SOURCES "core/**/*.c")
-file(GLOB_RECURSE CORE_HEADERS "core/**/*.h")
+file(GLOB_RECURSE CORE_SOURCES "core/*.c")
+file(GLOB_RECURSE CORE_HEADERS "core/*.h")
 
 # 自动收集utils目录下的所有源文件和头文件
-file(GLOB_RECURSE UTILS_SOURCES "utils/**/*.c")
-file(GLOB_RECURSE UTILS_HEADERS "utils/**/*.h")
+file(GLOB_RECURSE UTILS_SOURCES "utils/*.c")
+file(GLOB_RECURSE UTILS_HEADERS "utils/*.h")
 
 # 包含目录
-include_directories(core/student_manager/include)
-include_directories(utils/include)
-include_directories(app)
+include_directories(core)
+include_directories(utils)
+include_directories(include)
 
 # 收集源文件
 set(SOURCES 
-    app/main.c
+    main.c
     ${CORE_SOURCES}
     ${UTILS_SOURCES}
 )

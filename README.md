@@ -1,34 +1,41 @@
-# CLearningLabs - C语言学生管理系统
+# CLearningLabs - C语言通用管理系统
 
-一个使用C语言开发的模块化学生信息管理系统，专为C语言初学者设计，帮助理解C语言编程和软件分层架构。
+一个使用C语言开发的模块化通用管理系统，专为C语言初学者设计，帮助理解C语言编程和软件分层架构。当前实现了学生信息管理功能，未来可以扩展其他子系统。
 
 ## 目录结构
 
 ```
 .
-├── app/                    # 应用程序入口
-│   ├── app_config.h       # 应用配置文件
-│   └── main.c             # 程序主入口
 ├── core/                  # 核心模块
-│   └── student_manager/   # 学生管理模块
-│       ├── include/       # 头文件
-│       └── src/           # 源文件
+│   └── StudentManager/    # 学生管理系统
+│       ├── SMS_controller.c   # 控制器模块源文件
+│       ├── SMS_controller.h   # 控制器模块头文件
+│       ├── SMS_data.c         # 数据模块源文件
+│       ├── SMS_data.h         # 数据模块头文件
+│       ├── SMS_service.c      # 服务模块源文件
+│       ├── SMS_service.h      # 服务模块头文件
+│       ├── SMS_ui.c           # 用户界面模块源文件
+│       └── SMS_ui.h           # 用户界面模块头文件
+├── include/               # 包含文件目录
+│   └── app_config.h       # 应用配置文件
 ├── utils/                 # 工具模块
-│   ├── include/           # 工具头文件
-│   └── src/               # 工具源文件
+│   ├── Tprint.c           # 打印工具源文件
+│   └── Tprint.h           # 打印工具头文件
 ├── CMakeLists.txt         # CMake构建配置
+├── main.c                 # 程序主入口
 └── README.md              # 项目说明文档
 ```
 
 ## 功能特点
 
-- 添加学生信息（学号、姓名、年龄、成绩）
+- 当前实现：学生信息管理（学号、姓名、年龄、成绩）
 - 显示所有学生信息
 - 根据学号查找学生信息
 - 根据学号删除学生信息
 - 数据持久化存储（保存到文件）
 - 菜单驱动的交互式用户界面
 - 打字机效果输出（可配置）
+- 可扩展架构，便于添加其他子系统
 
 ## 技术架构
 
@@ -61,22 +68,19 @@
 mkdir build
 cd build
 
-# 使用CMake生成构建文件
-cmake ..
+# 使用CMake生成构建文件（MinGW Makefiles）
+cmake .. -G "MinGW Makefiles"
 
 # 编译项目
-cmake --build .
+mingw32-make
 
 # 运行程序
-# Windows:
 CLearningLabs.exe
-# Linux/macOS:
-./CLearningLabs
 ```
 
 ## 配置选项
 
-项目支持一些可配置选项，在 [app/app_config.h](app/app_config.h) 文件中定义：
+项目支持一些可配置选项，在 [include/app_config.h](include/app_config.h) 文件中定义：
 
 - `ENABLE_TYPEWRITER_PRINT` - 控制是否启用打字机效果输出（默认开启）
 
@@ -84,9 +88,10 @@ CLearningLabs.exe
 
 1. **模块化设计** - 每个功能模块独立实现，通过头文件接口通信
 2. **分层架构** - 严格分离UI、控制、业务和数据层
-3. **可配置功能** - 支持通过配置文件开关特定功能
-4. **数据持久化** - 学生数据自动保存到文件并在启动时加载
-5. **跨平台构建** - 使用CMake构建系统，支持多平台构建
+3. **可扩展性** - 支持在主系统下添加多个子系统
+4. **可配置功能** - 支持通过配置文件开关特定功能
+5. **数据持久化** - 学生数据自动保存到文件并在启动时加载
+6. **跨平台构建** - 使用CMake构建系统，支持多平台构建
 
 ## 开发规范
 

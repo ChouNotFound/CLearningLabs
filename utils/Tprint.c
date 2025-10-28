@@ -21,7 +21,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <windows.h>
-#include "../include/Tprint.h"
+#include "Tprint.h"
 
 /*=============================================================================
  *                          函数实现区
